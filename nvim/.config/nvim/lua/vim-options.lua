@@ -24,6 +24,7 @@ end
 
 -- left padding: 2 spaces | right padding: 2 spaces
 vim.opt.statuscolumn = "%#LineNr#  %{v:lnum}  "
+-- vim.opt.statuscolumn = "%#LineNr#  %{v:relnum != 0 ? v:relnum : v:lnum}  "
 
 apply_number_highlights()
 

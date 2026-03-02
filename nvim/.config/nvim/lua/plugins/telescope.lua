@@ -5,7 +5,7 @@ return {
       -- This section initializes and sets up fuzzyfinder(telescope)
       local builtin = require("telescope.builtin") -- imports telescopes builtin funcitons like finding files etc
       vim.keymap.set('n', '<C-f>', builtin.find_files, {})  -- set keymap to find files that will work in normal mode 'n' and         uses combo CTRL + f
-      vim.keymap.set('n', '<leader>lg', builtin.live_grep, {}) -- set keymap to find all files that contain certain text/part         that works in normal mode and uses leader(space-bar) + lg combo
+      vim.keymap.set('n', '<C-g>', builtin.live_grep, {}) -- set keymap to find all files that contain certain text/part         that works in normal mode and uses leader(space-bar) + lg combo
   end,
   },
   {
@@ -21,7 +21,7 @@ return {
           }
         }
       }
-      require("telescope").load_extension("ui-select") 
+      require("telescope").load_extension("ui-select")
       end,
   },
 }
