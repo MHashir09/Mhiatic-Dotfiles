@@ -24,7 +24,7 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
@@ -109,30 +109,31 @@ precmd() { echo } # this adds a one line space between commands to make them loo
 # For a full list of active aliases, run `alias`.
 #
 # You can set your custom aliases in the format below.
-# I am using fedora so I will set alias according to dnf,
+# I am using arch so I will set alias according to yay,
 # feel free to change them according to your own distro
 # rest are some general aliases
-alias summon="paru -S"
-alias exile="paru -Rns"
-alias transcend="paru -Syu"
+alias summon="yay -S"
+alias exile="yay -Rns"
+alias transcend="yay -Syu"
 # alias sanitize="sudo dnf autoremove"
-alias hunt="paru -Ss"
-alias scout="paru -Q"
-alias inspect="paru -Qi"
+alias hunt="yay -Ss"
+alias scout="yay -Qs"
+alias inspect="yay -Qi"
 # alias logs="dnf history list"
 # alias sources="dnf repolist"
 
 alias v="nvim"
-alias f="fresh"
 alias cat="bat"
 alias clr="clear"
+alias ls="ls -a"
 alias ll="ls -lah"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias als="grep '^alias' ~/.zshrc | cat -l bash -p"
 alias md="mkdir -p"
-alias rd="rmdir"
+alias rm="rm -rf"
+alias si="fastfetch"
 alias e="exit"
 alias rld="source ~/.zshrc"
 
