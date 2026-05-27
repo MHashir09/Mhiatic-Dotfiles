@@ -2,19 +2,19 @@
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
     // "type": "kitty-direct",
-      "type": "none",
-      "source": "~/.config/fastfetch/logo/girl.png",
-      "width": 37,
-      "height": 14,
+      "type": "file",
+      "source": "~/.config/fastfetch/logo/frieren.txt",
+      // "width": 37,
+      "height": 12,
       "padding": {
         "top": 2,
         "right": 5,
         "left": 3
-      },
+      }
     },
     "display": {
         "separator": "  ",
-        "color": "white",
+        "color": "white"
     },
     "modules": [
         "break",
