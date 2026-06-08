@@ -1,0 +1,14 @@
+// This config is in the KDL format: https://kdl.dev
+// "/-" comments out the following node.
+// Check the wiki for a full description of the configuration:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
+
+
+// Include dms files
+include "local/inputs.kdl"
+include "local/layouts.kdl"
+include "local/gestures.kdl"
+include "local/keybinds.kdl"
+include "local/animations.kdl"
+include "local/windowrules.kdl"
+include "local/miscellaneous.kdl"

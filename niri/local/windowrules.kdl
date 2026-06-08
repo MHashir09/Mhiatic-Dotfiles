@@ -1,0 +1,60 @@
+// Check the wiki for a full description of the configuration:
+// https://niri-wm.github.io/niri/Configuration%3A-Window-Rules.html
+
+// === Window Rules ===
+window-rule {
+    match app-id=r#"^org\.gnome\."#
+    draw-border-with-background false
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+window-rule {
+    match app-id=r#"^gnome-calculator$"#
+    match app-id=r#"^blueman-manager$"#
+    match app-id=r#"^org\.gnome\.Nautilus$"#
+    match app-id=r#"^xdg-desktop-portal$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^steam$"# title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+    open-focused false
+}
+
+
+window-rule {
+  match app-id="kitty"
+  open-maximized true
+  draw-border-with-background false
+   background-effect {
+        blur true
+   }
+}
+
+window-rule {
+  match app-id="helium-browser"
+  open-maximized true
+}
+
+window-rule {
+    match app-id=r#"org.quickshell$"#
+    match app-id=r#"com.danklinux.dms$"#
+    open-floating true
+}
+
+window-rule {
+    match title="discord"
+    open-maximized true
+}
+
+window-rule {
+    match title="spotify"
+    open-maximized true
+}
+
+window-rule {
+    match title="mpv"
+    open-maximized true
+}

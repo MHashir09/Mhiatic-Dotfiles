@@ -1,0 +1,38 @@
+// Find more information on the wiki:
+// https://niri-wm.github.io/niri/Configuration%3A-Layout.html
+
+layout {
+    gaps 0
+    center-focused-column "never"
+
+    preset-column-widths {
+        proportion 1.33333
+        proportion 1.5
+        proportion 1.66667
+    }
+
+    default-column-width { proportion 1.5; }
+
+    focus-ring {
+        on
+        width 1.2
+        active-color "#ffffff"
+        inactive-color "#505051"
+    }
+
+    border {
+        off
+        width 5
+        active-color "#ffc88f"
+        inactive-color "#505051"
+        urgent-color "#10b000"
+    }
+
+    shadow {
+        off
+        softness 31
+        spread 6
+        offset x=1 y=5
+        color "#0008"
+    }
+}

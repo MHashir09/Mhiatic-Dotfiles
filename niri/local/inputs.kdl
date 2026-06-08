@@ -1,0 +1,19 @@
+// Find the full list of options on the wiki:
+// https://niri-wm.github.io/niri/Configuration%3A-Input.html
+
+input {
+    keyboard {
+        repeat-rate 60
+        repeat-delay 250
+        numlock
+    }
+    touchpad {
+        tap
+        accel-speed 0.3
+        natural-scroll
+    }
+}
+
+// The output stuff can be added via using the wiki:
+// https://yalter.github.io/niri/Configuration:-Output
+// I didnt include it because I am using defaults and dont need it
