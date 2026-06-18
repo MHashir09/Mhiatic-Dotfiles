@@ -22,28 +22,30 @@ local terminal = "kitty"
 
 -- Color palette
 local colors = {
-  	bg = "#131313", -- Deepest black
-	fg = "#c9c9c9", -- Bright silver
-	grey = "#343434", -- Dark grey (for inactive elements)
-	light_grey = "#5d5d5e", -- Mid-tone
-	silver = "#8c8c8d", -- Muted highlight
-	accent = "#c9c9c9", -- Pure highlight
+    bg = "#000000",        -- AMOLED black (true black, pixels off)
+    fg = "#ffffff",        -- Pure white
 
-	-- Keeping standard names but mapping to monochrome shades
-	red = "#5d5d5e", -- Muted dark grey for urgency
-	cyan = "#8c8c8d",
-	green = "#c9c9c9",
-	lavender = "#5d5d5e",
-	light_blue = "#8c8c8d",
-	blue = "#8c8c8d",
-	purple = "#c9c9c9",
+    grey = "#1a1a1a",      -- Very dark grey (inactive elements)
+    light_grey = "#2a2a2a",-- Slightly lighter inactive tone
+    silver = "#b0b0b0",    -- Muted highlight
+
+    accent = "#ffffff",    -- Pure highlight (bright white)
+
+    -- Monochrome mapping preserved
+    red = "#2a2a2a",        -- muted dark grey for urgency
+    cyan = "#b0b0b0",
+    green = "#ffffff",
+    lavender = "#2a2a2a",
+    light_blue = "#b0b0b0",
+    blue = "#b0b0b0",
+    purple = "#ffffff",
 }
 
 -- Workspace tags
 local tags = { " 1 ", " 2 ", " 3 ", " 4 ", " 5 " }
 
 -- Status bar font
-local bar_font = "JetBrainsMono Nerd Font:style=Bold:size=11.5"
+local bar_font = "JetBrainsMono Nerd Font:style=Bold:size=10"
 
 -------------------------------------------------------------------------------
 -- STATUS BAR BLOCKS
@@ -77,7 +79,7 @@ local blocks = {
     -- Kernel version
     oxwm.bar.block.shell({
         format = "  {}",
-        command = "uname -r",
+        command = "echo 'Void Linux'", -- Change with your OS name ig
         interval = 999999999,
         color = colors.fg,
         underline = false,
@@ -140,6 +142,10 @@ oxwm.set_layout_symbol("tabbed", "│ Layout: [Tabbed] ")
 oxwm.set_layout_symbol("monocle", "│ Layout: [Monocle] ")
 oxwm.set_layout_symbol("grid", "│ Layout: [Monocle]  ")
 
+
+-- Set default layout (scrolling by default)
+oxwm.set_layout("scrolling")
+
 -------------------------------------------------------------------------------
 -- APPEARANCE
 -------------------------------------------------------------------------------
@@ -172,20 +178,23 @@ oxwm.bar.set_scheme_urgent(colors.fg, colors.bg, colors.bg)          -- Urgent t
 -- WINDOW RULES
 -------------------------------------------------------------------------------
 
+-- Workspace: 0 { No Specific Workspace }
+oxwm.rule.add({ class = "org.gnome.Nautilus", floating = true })
+
 -- Workspace: 1 { Browser & WebApps }
 oxwm.rule.add({ class = "Helium", tag = 1 })
 
 -- Workspace: 2 { Terminal & Coding }
 oxwm.rule.add({ class = "kitty", tag = 2 })
 
--- Workspace: 3 { Files }
-oxwm.rule.add({ class = "org.gnome.Nautilus", tag = 3 })
+-- Workspace: 3 { Socials }
+oxwm.rule.add({ class = "discord", tag = 3 })
 
--- Workspace: 4 { Steam }
-oxwm.rule.add({ class = "steam", tag = 4 })
+-- Workspace: 4 { Media }
+oxwm.rule.add({ class = "mpv", tag = 4 })
 
--- Workspace: 5 { Miscellaneous }
--- Idk what to do with this workspace lol
+-- Workspace: 5 { Steam }
+oxwm.rule.add({ class = "steam", tag = 5 })
 
 -------------------------------------------------------------------------------
 -- KEYBINDINGS
@@ -193,26 +202,19 @@ oxwm.rule.add({ class = "steam", tag = 4 })
 
 -- Applications
 oxwm.key.bind({ modkey }, "Return", oxwm.spawn_terminal())
-oxwm.key.bind({ modkey }, "B", oxwm.spawn("helium-browser"))
+oxwm.key.bind({ modkey }, "B", oxwm.spawn("helium"))
 oxwm.key.bind({ modkey }, "E", oxwm.spawn("nautilus"))
-oxwm.key.bind({ modkey }, "D", oxwm.spawn("vesktop"))
 
 -- Rofi Keybinds
 oxwm.key.bind({ modkey, modkey2 }, "Space", oxwm.spawn({ "sh", "-c", "rofi -show codeverse -modi 'codeverse:/home/mhia/.config/rofi/scripts/main-menu.sh' -no-lazy-grab" }))
 oxwm.key.bind({ modkey, modkey2 }, "C", oxwm.spawn({ "sh", "-c", "~/.config/rofi/scripts/rofi-clipboard.sh" }))
-oxwm.key.bind({ modkey, modkey2 }, "N", oxwm.spawn({ "sh", "-c", "~/.config/rofi/scripts/rofi-notification-menu.sh" }))
 oxwm.key.bind({ modkey, modkey2 }, "B", oxwm.spawn({ "sh", "-c", "~/.config/rofi/scripts/rofi-battery-power-menu.sh" }))
 oxwm.key.bind({ modkey }, "Space", oxwm.spawn({ "sh", "-c", "rofi -show drun" }))
 oxwm.key.bind({ modkey, "Control" }, "Space", oxwm.spawn({ "sh", "-c", "~/.config/rofi/scripts/rofi-wallpaper-selector.sh" }))
 
-oxwm.key.bind({ modkey }, "K", oxwm.spawn({ "sh", "-c", "~/.config/rofi/scripts/rofi-keybind-menu.sh" }))
 oxwm.key.bind({ modkey2 }, "P", oxwm.spawn({ "sh", "-c", "~/.config/rofi/scripts/rofi-powermenu.sh" }))
-oxwm.key.bind({ modkey2 }, "C", oxwm.spawn({ "sh", "-c", "~/.config/rofi/scripts/rofi-configs-menu.sh" }))
 oxwm.key.bind({ modkey2 }, "V", oxwm.spawn({ "sh", "-c", "~/.config/rofi/scripts/rofi-volume-selector.sh" }))
 oxwm.key.bind({ modkey2 }, "B", oxwm.spawn({ "sh", "-c", "~/.config/rofi/scripts/rofi-brightness-selector.sh" }))
-oxwm.key.bind({ modkey2 }, "W", oxwm.spawn({ "sh", "-c", "~/.config/rofi/scripts/rofi-wifi-menu.sh" }))
-oxwm.key.bind({ modkey2 }, "S", oxwm.spawn({ "sh", "-c", "~/.config/rofi/scripts/rofi-screenshot-menu.sh" }))
-oxwm.key.bind({ modkey2 }, "R", oxwm.spawn({ "sh", "-c", "~/.config/rofi/scripts/rofi-screen-recorder-menu.sh" }))
 
 -- Screenshot and Screenrecording
 oxwm.key.bind({}, "Print", oxwm.spawn({ "sh", "-c", "~/.config/oxwm/Scripts/screen-shot.sh" }))
@@ -277,9 +279,10 @@ end
 -------------------------------------------------------------------------------
 
 oxwm.autostart("picom")
+oxwm.autostart("pipewire")
+oxwm.autostart("wireplumber")
 oxwm.autostart("dunst")
 oxwm.autostart("xset r rate 200 60")
 oxwm.autostart("flameshot")
-oxwm.autostart("greenclip daemon") Cuz, I feel like I dont need a clipboard Manager lol
 oxwm.autostart("~/.config/oxwm/Scripts/set-default-layout.sh")
 oxwm.autostart("~/.config/oxwm/Scripts/set-wallpaper.sh")
