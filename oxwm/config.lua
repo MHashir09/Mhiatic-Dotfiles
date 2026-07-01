@@ -188,10 +188,13 @@ oxwm.rule.add({ class = "Helium", tag = 1 })
 oxwm.rule.add({ class = "kitty", tag = 2 })
 
 -- Workspace: 3 { Socials }
-oxwm.rule.add({ class = "discord", tag = 3 })
+oxwm.rule.add({ class = "vesktop", tag = 3 })
+oxwm.rule.add({ class = "Element", tag = 3 })
+oxwm.rule.add({ class = "halloy", tag = 3 })
 
 -- Workspace: 4 { Media }
 oxwm.rule.add({ class = "mpv", tag = 4 })
+oxwm.rule.add({ class = "spotify", tag = 4 })
 
 -- Workspace: 5 { Steam }
 oxwm.rule.add({ class = "steam", tag = 5 })
@@ -279,8 +282,10 @@ end
 -------------------------------------------------------------------------------
 
 oxwm.autostart("picom")
+oxwm.autostart("dbus-update-activation-environment --all")
 oxwm.autostart("pipewire")
 oxwm.autostart("wireplumber")
+oxwm.autostart("pipewire-pulse")
 oxwm.autostart("dunst")
 oxwm.autostart("xset r rate 200 60")
 oxwm.autostart("flameshot")
