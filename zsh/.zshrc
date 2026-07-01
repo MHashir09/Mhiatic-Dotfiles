@@ -1,5 +1,5 @@
-# This executes fastfetch whenever the terminal is opened
-#fastfetch
+# # This executes fastfetch whenever the terminal is opened
+# fastfetch
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -112,12 +112,12 @@ precmd() { echo } # this adds a one line space between commands to make them loo
 # I am using arch so I will set alias according to yay,
 # feel free to change them according to your own distro
 # rest are some general aliases
-alias summon="yay -S"
-alias exile="yay -Rns"
-alias transcend="yay -Syu"
+alias summon="paru -S"
+alias exile="paru -Rns"
+alias transcend="paru -Syyu"
 # alias sanitize="sudo dnf autoremove"
-alias hunt="yay -Ss"
-alias scout="yay -Qs"
+alias hunt="paru -Ss"
+alias scout="paru -Q"
 alias inspect="yay -Qi"
 # alias logs="dnf history list"
 # alias sources="dnf repolist"
@@ -125,8 +125,8 @@ alias inspect="yay -Qi"
 alias v="nvim"
 alias cat="bat"
 alias clr="clear"
-alias ls="ls -a"
-alias ll="ls -lah"
+alias ls="ls --color"
+alias ll="ls -lah --color"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -134,6 +134,7 @@ alias als="grep '^alias' ~/.zshrc | cat -l bash -p"
 alias md="mkdir -p"
 alias rm="rm -rf"
 alias si="fastfetch"
+alias anime="ani-cli"
 alias e="exit"
 alias rld="source ~/.zshrc"
 
@@ -152,3 +153,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export MANPAGER="bat --color always"
+
+export PATH=$PATH:/home/devmhia/.spicetify
+export PATH=$PATH:~/.spicetify
