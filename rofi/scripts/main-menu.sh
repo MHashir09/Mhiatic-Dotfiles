@@ -7,17 +7,11 @@ if [ -z "$@" ]; then
     echo -en "\0prompt\x1fMHIA'S WORKSTATION\n"
     echo -en "󰣆  Applications\n"
     echo -en "󰸉  Wallpaper Selector\n"
-    echo -en "󰌌  Keybinds\n"
     echo -en "󰅌  Clipboard\n"
-    echo -en "󰖩  WiFi Manager\n"
-    echo -en "  Configs\n"
     echo -en "󰕾  Volume Controller\n"
     echo -en "󰃠  Brightness Controller\n"
     echo -en "⏻  Power Menu\n"
-    echo -en "󰄀  Take Screenshot\n"
-    echo -en "󰕧  Screen Recorder\n"
     echo -en "󰖟  Web Apps Manager\n"
-    echo -en "󰂚  Notification Options\n"
     echo -en "󰁹  Battery Options"
 else
     # // -- Handle the selection -- //
@@ -28,17 +22,11 @@ else
        "󰸉  Wallpaper Selector")
             coproc ( "$SCRIPTS_DIR/rofi-wallpaper-selector.sh" > /dev/null 2>&1 )
             ;;
-        "󰌌  Keybinds")
-            coproc ( "$SCRIPTS_DIR/rofi-keybind-menu.sh" > /dev/null 2>&1 )
-            ;;
         "󰅌  Clipboard")
             coproc ( "$SCRIPTS_DIR/rofi-clipboard.sh" > /dev/null 2>&1 )
             ;;
         "󰖩  WiFi Manager")
             coproc ( "$SCRIPTS_DIR/rofi-wifi-menu.sh" > /dev/null 2>&1 )
-            ;;
-        "  Configs")
-            coproc ( "$SCRIPTS_DIR/rofi-configs-menu.sh" > /dev/null 2>&1 )
             ;;
         "󰕾  Volume Controller")
             coproc ( "$SCRIPTS_DIR/rofi-volume-selector.sh" > /dev/null 2>&1 )
@@ -49,17 +37,8 @@ else
         "⏻  Power Menu")
             (sleep 0.2 && "$SCRIPTS_DIR/rofi-powermenu.sh") &
             ;;
-        "󰄀  Take Screenshot")
-            coproc ( "$SCRIPTS_DIR/rofi-screenshot-menu.sh" > /dev/null 2>&1 )
-            ;;
-        "󰕧  Screen Recorder")
-            coproc ( "$SCRIPTS_DIR/rofi-screen-recorder-menu.sh" > /dev/null 2>&1 )
-            ;;
         "󰖟  Web Apps Manager")
             coproc ( "$SCRIPTS_DIR/webapp-manager.sh" > /dev/null 2>&1 )
-            ;;
-       "󰂚  Notification Options")
-            coproc ( "$SCRIPTS_DIR/rofi-notification-menu.sh" > /dev/null 2>&1 )
             ;;
         "󰁹  Battery Options")
             coproc ( "$SCRIPTS_DIR/rofi-battery-power-menu.sh" > /dev/null 2>&1 )
