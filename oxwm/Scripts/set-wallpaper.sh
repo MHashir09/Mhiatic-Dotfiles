@@ -1,2 +1,2 @@
 #!/bin/bash
-feh --bg-scale "$HOME/MoFiles/wallpapers/Monochrome//Reze.png"
+feh --bg-scale "$HOME/MoFiles/wallpapers/Monochrome//Girl6.png"

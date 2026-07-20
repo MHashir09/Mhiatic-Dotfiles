@@ -79,7 +79,7 @@ local blocks = {
     -- Kernel version
     oxwm.bar.block.shell({
         format = "  {}",
-        command = "echo 'Void Linux'", -- Change with your OS name ig
+        command = "echo 'Arch Linux'", -- Change with your OS name ig
         interval = 999999999,
         color = colors.fg,
         underline = false,
@@ -283,9 +283,6 @@ end
 
 oxwm.autostart("picom")
 oxwm.autostart("dbus-update-activation-environment --all")
-oxwm.autostart("pipewire")
-oxwm.autostart("wireplumber")
-oxwm.autostart("pipewire-pulse")
 oxwm.autostart("dunst")
 oxwm.autostart("xset r rate 200 60")
 oxwm.autostart("flameshot")
