@@ -44,13 +44,6 @@ get_webapp_names() {
     done < <(get_webapps) | sort
 }
 
-# // -- Finds the .desktop file for a given webapp name (case-insensitive) -- //
-# -- Uses grep to search by content rather than filename to handle spaces --
-get_file_by_name() {
-    local name="$1"
-    grep -ril "^Name=$name" "$APPS_DIR" 2>/dev/null | head -1
-}
-
 # // -- Check if a webapp with given name or URL already exists -- //
 check_duplicate() {
     local name="$1"
@@ -209,8 +202,8 @@ summon_webapp() {
     # -- sanitize name for use as a filename by replacing spaces with dashes --
     FILENAME=$(echo "$NAME" | tr ' ' '-')
 
-    # -- create icon directory and fetch favicon --
-    mkdir -p "$ICON_DIR"
+    # -- create directories and fetch favicon --
+    mkdir -p "$APPS_DIR" "$ICON_DIR"
     fetch_favicon "$URL" "$ICON_DIR/$FILENAME.png"
 
     # -- create the .desktop file --
