@@ -205,7 +205,7 @@ oxwm.rule.add({ class = "steam", tag = 5 })
 
 -- Applications
 oxwm.key.bind({ modkey }, "Return", oxwm.spawn_terminal())
-oxwm.key.bind({ modkey }, "B", oxwm.spawn("helium"))
+oxwm.key.bind({ modkey }, "B", oxwm.spawn("helium-browser"))
 oxwm.key.bind({ modkey }, "E", oxwm.spawn("nautilus"))
 
 -- Rofi Keybinds
