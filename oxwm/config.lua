@@ -209,13 +209,13 @@ oxwm.key.bind({ modkey }, "B", oxwm.spawn("helium"))
 oxwm.key.bind({ modkey }, "E", oxwm.spawn("nautilus"))
 
 -- Rofi Keybinds
-oxwm.key.bind({ modkey, modkey2 }, "Space", oxwm.spawn({ "sh", "-c", "rofi -show codeverse -modi 'codeverse:/home/mhia/.config/rofi/scripts/main-menu.sh' -no-lazy-grab" }))
 oxwm.key.bind({ modkey, modkey2 }, "C", oxwm.spawn({ "sh", "-c", "~/.config/rofi/scripts/rofi-clipboard.sh" }))
 oxwm.key.bind({ modkey, modkey2 }, "B", oxwm.spawn({ "sh", "-c", "~/.config/rofi/scripts/rofi-battery-power-menu.sh" }))
 oxwm.key.bind({ modkey }, "Space", oxwm.spawn({ "sh", "-c", "rofi -show drun" }))
 oxwm.key.bind({ modkey, "Control" }, "Space", oxwm.spawn({ "sh", "-c", "~/.config/rofi/scripts/rofi-wallpaper-selector.sh" }))
 
 oxwm.key.bind({ modkey2 }, "P", oxwm.spawn({ "sh", "-c", "~/.config/rofi/scripts/rofi-powermenu.sh" }))
+oxwm.key.bind({ modkey2 }, "W", oxwm.spawn({ "sh", "-c", "~/.config/rofi/scripts/webapp-manager.sh" }))
 oxwm.key.bind({ modkey2 }, "V", oxwm.spawn({ "sh", "-c", "~/.config/rofi/scripts/rofi-volume-selector.sh" }))
 oxwm.key.bind({ modkey2 }, "B", oxwm.spawn({ "sh", "-c", "~/.config/rofi/scripts/rofi-brightness-selector.sh" }))
 
@@ -282,6 +282,7 @@ end
 -------------------------------------------------------------------------------
 
 oxwm.autostart("picom")
+oxwm.autostart("fcitx5")
 oxwm.autostart("dbus-update-activation-environment --all")
 oxwm.autostart("dunst")
 oxwm.autostart("xset r rate 200 60")
