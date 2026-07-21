@@ -1,6 +1,13 @@
 # # This executes fastfetch whenever the terminal is opened
 # fastfetch
 
+# Wine: force OpenGL, disable Vulkan & DXVK
+export DISABLE_VULKAN=1
+export VKD3D_DISABLE_EXTENSIONS=1
+export PROTON_USE_WINED3D=1
+export DXVK_HUD=0
+export WINEDLLOVERRIDES="dxvk=n;d3d10core=n;d3d11=n;d3d12=n;d3d9=n;dxgi=n"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -115,12 +122,9 @@ precmd() { echo } # this adds a one line space between commands to make them loo
 alias summon="paru -S"
 alias exile="paru -Rns"
 alias transcend="paru -Syyu"
-# alias sanitize="sudo dnf autoremove"
 alias hunt="paru -Ss"
 alias scout="paru -Q"
-alias inspect="yay -Qi"
-# alias logs="dnf history list"
-# alias sources="dnf repolist"
+alias inspect="paru -Qi"
 
 alias v="nvim"
 alias cat="bat"
@@ -154,5 +158,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export MANPAGER="bat --color always"
 
-export PATH=$PATH:/home/devmhia/.spicetify
-export PATH=$PATH:~/.spicetify
+export __GLX_VENDOR_LIBRARY_NAME=mesa
+export MESA_LOADER_DRIVER_OVERRIDE=i965
