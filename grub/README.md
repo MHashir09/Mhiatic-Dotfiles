@@ -6,12 +6,12 @@
 
 1. Extract the theme to your desired location:
    ```bash
-   tar -xzf Pochita.tar.gz -C ~/Mhiatic-Dotfiles/grub/themes/
+   tar -xzf Pochita.tar.gz -C ~/MoFiles/grub/themes/
    ```
 
    Or if you already have the extracted folder, ensure the structure is:
    ```
-   ~/Mhiatic-Dotfiles/grub/themes/Pochita/
+   ~/MoFiles/grub/themes/Pochita/
    ├── theme.txt
    ├── logo.png
    ├── background.png
@@ -19,19 +19,15 @@
    └── select_*.png
    ```
 
-2. Create a symlink to the system GRUB themes directory:
+2. Create the system GRUB themes directory (if it doesn't exist) and symlink the theme:
    ```bash
-   sudo ln -sf ~/Mhiatic-Dotfiles/grub/themes/Pochita /usr/share/grub/themes/Pochita
+   sudo mkdir -p /usr/share/grub/themes
+   sudo ln -sf ~/MoFiles/grub/themes/Pochita /usr/share/grub/themes/Pochita
    ```
 
-3. Edit `/etc/default/grub` and add the following line:
+3. Set the GRUB theme in `/etc/default/grub`:
    ```bash
-   GRUB_THEME="/usr/share/grub/themes/Pochita/theme.txt"
-   ```
-
-   Or simply append it using:
-   ```bash
-   echo 'GRUB_THEME="/usr/share/grub/themes/Pochita/theme.txt"' | sudo tee -a /etc/default/grub
+   sudo sed -i 's|^#*GRUB_THEME=.*|GRUB_THEME="/usr/share/grub/themes/Pochita/theme.txt"|' /etc/default/grub
    ```
 
 4. Regenerate the GRUB configuration:
@@ -43,6 +39,21 @@
    ```bash
    sudo reboot
    ```
+
+## Changing the Background
+
+Replace the `background.png` file inside the theme directory with your own image (keep the same filename and format):
+
+```bash
+cp /path/to/your/image.png ~/MoFiles/grub/themes/Pochita/background.png
+```
+
+Then regenerate GRUB config and reboot:
+
+```bash
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo reboot
+```
 
 ## Notes
 
