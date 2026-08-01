@@ -128,6 +128,7 @@ alias inspect="paru -Qi"
 
 alias v="nvim"
 alias cat="bat"
+alias dc="concord"
 alias clr="clear"
 alias man="tldr"
 alias ls="ls --color"
@@ -139,7 +140,6 @@ alias als="grep '^alias' ~/.zshrc | cat -l bash -p"
 alias md="mkdir -p"
 alias rm="rm -rf"
 alias si="fastfetch"
-alias anime="ani-cli"
 alias e="exit"
 alias rld="source ~/.zshrc"
 
@@ -150,6 +150,8 @@ alias gs="git status"
 alias gcm="git commit -m"
 alias gcl="git clone"
 
+alias journal="v ~/Kiroku/Journal/$(date +%F).md"
+alias log='cd ~/Kiroku/Journal/ && ga . && gcm "Journal: $(date "+%B %-d, %Y")" && gp && cd'
 
 # Some path related settings
 export PATH=$HOME/.local/bin:$PATH
