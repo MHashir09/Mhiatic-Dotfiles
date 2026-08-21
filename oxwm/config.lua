@@ -42,10 +42,10 @@ local colors = {
 }
 
 -- Workspace tags
-local tags = { " 1 ", " 2 ", " 3 ", " 4 ", " 5 " }
+local tags = { "  一  ", "  二  ", "  三  ", "  四  ", "  五  " }
 
 -- Status bar font
-local bar_font = "JetBrainsMono Nerd Font:style=Bold:size=10"
+local bar_font = "Noto Sans CJK JP:style=Bold:size=10"
 
 -------------------------------------------------------------------------------
 -- STATUS BAR BLOCKS
@@ -56,13 +56,13 @@ local blocks = {
     oxwm.bar.block.static({
         text = "  │  ",
         interval = 999999999,
-        color = colors.light_grey,
+        color = colors.fg,
         underline = false,
     }),
 
     -- RAM usage
     oxwm.bar.block.ram({
-        format = "󱑾   {used} / {total} GB",
+        format = "メモリ  :    {used} / {total} GB",
         interval = 5,
         color = colors.fg,
         underline = false,
@@ -72,13 +72,13 @@ local blocks = {
     oxwm.bar.block.static({
         text = "  │  ",
         interval = 999999999,
-        color = colors.light_grey,
+        color = colors.fg,
         underline = false,
     }),
 
     -- Kernel version
     oxwm.bar.block.shell({
-        format = "  {}",
+        format = "システム  :    {}",
         command = "echo 'Arch Linux'", -- Change with your OS name ig
         interval = 999999999,
         color = colors.fg,
@@ -89,16 +89,16 @@ local blocks = {
     oxwm.bar.block.static({
         text = "  │  ",
         interval = 999999999,
-        color = colors.light_grey,
+        color = colors.fg,
         underline = false,
     }),
 
     -- Battery status
     oxwm.bar.block.battery({
-        format = "  {}%",
-        charging = "  {}%",
-        discharging = "  {}%",
-        full = "  {}%",
+        format = "状態  :   {}%",
+        charging = "充電中  :   {}%",
+        discharging = "状態  :   {}%",
+        full = "充電完了  :   {}%",
         interval = 30,
         color = colors.fg,
         underline = false,
@@ -108,14 +108,14 @@ local blocks = {
     oxwm.bar.block.static({
         text = "  │  ",
         interval = 999999999,
-        color = colors.light_grey,
+        color = colors.fg,
         underline = false,
     }),
 
     -- Date and time
     oxwm.bar.block.datetime({
-        format = "󰃮  {}  ",
-        date_format = "%a, %d - %I:%M %p",
+        format = "日時  :   {}",
+        date_format = "%m/%d（%a） %I:%M  ",
         interval = 1,
         color = colors.fg,
         underline = false,
@@ -135,13 +135,12 @@ oxwm.set_tags(tags)
 -- LAYOUTS
 -------------------------------------------------------------------------------
 
-oxwm.set_layout_symbol("scrolling", "│ Layout: [Scrolling] ")
-oxwm.set_layout_symbol("tiling", "│ Layout: [Tiling] ")
-oxwm.set_layout_symbol("normie", "│ Layout: [Floating] ")
-oxwm.set_layout_symbol("tabbed", "│ Layout: [Tabbed] ")
-oxwm.set_layout_symbol("monocle", "│ Layout: [Monocle] ")
-oxwm.set_layout_symbol("grid", "│ Layout: [Monocle]  ")
-
+oxwm.set_layout_symbol("scrolling", " │     配置  :    [スクロール] ")
+oxwm.set_layout_symbol("tiling",    " │     配置  :    [タイル] ")
+oxwm.set_layout_symbol("normie",    " │     配置  :    [フローティング] ")
+oxwm.set_layout_symbol("tabbed",    " │     配置  :    [タブ] ")
+oxwm.set_layout_symbol("monocle",   " │     配置  :    [モノクル] ")
+oxwm.set_layout_symbol("grid",      " │     配置  :    [グリッド] ")
 
 -- Set default layout (scrolling by default)
 oxwm.set_layout("scrolling")
