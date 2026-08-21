@@ -151,7 +151,7 @@ alias gcm="git commit -m"
 alias gcl="git clone"
 
 alias jrnl='cp -n ~/Kiroku/Journal/TEMPLATE.md ~/Kiroku/Journal/$(date +%F).md && v ~/Kiroku/Journal/$(date +%F).md'
-alias log='cd ~/Kiroku/Journal/ && ga . && gcm "Journal: $(date "+%B %-d, %Y")" && gp && cd'
+alias log='cd ~/Kiroku/Journal/ && ga . && gcm "Journal: $(date "+%B %-d, %Y")" && gp && ...'
 
 # Some path related settings
 export PATH=$HOME/.local/bin:$PATH
